@@ -1,6 +1,6 @@
 <?php
 /** @var string|null $apiUrl */
-$apiUrl = "https://api.seudominio.com/v1";
+$apiUrl = "https://api.lourencogabriel.dev/v1";
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -250,14 +250,14 @@ $apiUrl = "https://api.seudominio.com/v1";
             <a href="/docs" class="btn btn-primary">
                 Ver Documentação
             </a>
-            <a href="https://github.com/seu-repo" class="btn" style="background: rgba(255,255,255,0.05); color: #fff; border: 1px solid var(--card-border);">
+            <a href="https://github.com/GabrielLourenco1912/api-php" class="btn" style="background: rgba(255,255,255,0.05); color: #fff; border: 1px solid var(--card-border);">
                 GitHub
             </a>
         </div>
     </div>
 
     <footer>
-        &copy; <?= date('Y') ?> • Dev Engine v1.0.4-beta
+        &copy; <?= date('Y') ?> • Dev Engine v1.0-beta
     </footer>
 </div>
 

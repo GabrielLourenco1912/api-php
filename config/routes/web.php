@@ -17,6 +17,8 @@ $router->delete('/bd/schemaDelete', [BDController::class, 'schemaDelete']);
 
 $router->get('/', [HomeController::class, 'index']);
 
+$router->get('/docs', [HomeController::class, 'docs']);
+
 $router->get('/bd/schemaBuilder', [BDController::class, 'schemaBuilder']);
 
 $router->get('/bd/schemaCreate', [BDController::class, 'schemaCreate']);

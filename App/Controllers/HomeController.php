@@ -9,4 +9,7 @@ class HomeController {
     public function index(Response $response): void {
         $response->view('home/index')->send();
     }
+    public function docs(Response $response): void {
+        $response->view('docs/docs')->send();
+    }
 }
