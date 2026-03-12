@@ -37,8 +37,8 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /var/www/minha-app
-            git pull --rebase origin main
+            cd /var/www/minha-api
+            git pull --rebase api main
           
             docker exec -i ${{ secrets.CONTAINER_NAME }} \
             bash -c "PGPASSWORD=${{ secrets.DB_PASSWORD }} \
