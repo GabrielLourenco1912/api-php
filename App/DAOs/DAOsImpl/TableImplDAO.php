@@ -74,7 +74,7 @@ class TableImplDAO {
 
             $sql = $sqlTable . "\n" . $sqlIndex;
 
-            #echo "<pre>" . $sql . "</pre>";
+            echo "<pre>" . $sql . "</pre>";
 
             $pdo->exec($sql);
         });

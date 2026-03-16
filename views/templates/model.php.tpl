@@ -13,7 +13,7 @@ class <?= ucfirst($tableName) . PHP_EOL ?>
 
     foreach ($columns as $column) {
         $params[] = "{$column['type']} \${$column['name']}";
-        $declarations[] = $indent . $indent . "\$this->\${$column['name']} = \${$column['name']};";
+        $declarations[] = $indent . $indent . "\$this->{$column['name']} = \${$column['name']};";
 
         // atributo
         $atributes[] = $indent . "private {$column['type']} \${$column['name']};";

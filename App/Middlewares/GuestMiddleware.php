@@ -2,19 +2,30 @@
 
 namespace App\Middlewares;
 
-class GuestMiddleware {
+use App\Core\Session;
 
-    public function handle(): void {
-        if (session_status() === PHP_SESSION_NONE) {
+class GuestMiddleware {
+    public function __construct(Session $session)
+    {
+        $this->session = $session;
+    }
+
+    public function handle(): void
+    {
+        $currentUserId = $this->session->get('currentUserId');
+        if (session_status() === PHP_SESSION_NONE)
+        {
             session_start();
         }
 
-        if (isset($_SESSION['user'])) {
+        if (isset($currentUserId))
+        {
             $this->redirect('/');
         }
     }
 
-    private function redirect(string $url): void {
+    private function redirect(string $url): void
+    {
         header("Location: $url");
         exit;
     }

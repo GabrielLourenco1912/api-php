@@ -3,10 +3,13 @@
 use App\Core\Router;
 use App\Core\Response;
 use App\Core\Exceptions\HttpException;
-
-session_start();
+use App\Core\Session;
 
 require __DIR__ . '/../vendor/autoload.php';
+
+$session = new Session();
+
+$session->setCookieParams()->timeOut(1800)->start();
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
 $dotenv->safeLoad();

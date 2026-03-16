@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict utwujkE907cWecRddMK4kDYFeOn2ckCWG5gLWYvILZmRN6uZ4k1vysfmhAzYwqj
+\restrict XPhdqRiPrE7belUdn0J70wOgMqSPilwaLduekhyGDGfkP9E87cK8gHmdr78YgDB
 
 -- Dumped from database version 16.10
 -- Dumped by pg_dump version 16.10
@@ -18,9 +18,70 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: users; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.users (
+    id bigint NOT NULL,
+    name character varying(55) NOT NULL,
+    email character varying(55) NOT NULL,
+    role character varying(55) NOT NULL,
+    senha character varying(255) NOT NULL
+);
+
+
+--
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.users ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public.users_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: users users_email_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.users
+    ADD CONSTRAINT users_email_key UNIQUE (email);
+
+
+--
+-- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.users
+    ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: idx_users_name; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_users_name ON public.users USING btree (name);
+
+
+--
+-- Name: idx_users_senha; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX idx_users_senha ON public.users USING btree (senha);
+
+
 --
 -- PostgreSQL database dump complete
 --
 
-\unrestrict utwujkE907cWecRddMK4kDYFeOn2ckCWG5gLWYvILZmRN6uZ4k1vysfmhAzYwqj
+\unrestrict XPhdqRiPrE7belUdn0J70wOgMqSPilwaLduekhyGDGfkP9E87cK8gHmdr78YgDB
 

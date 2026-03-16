@@ -180,15 +180,17 @@ class Router {
     {
         foreach ($routeData['middlewares'] as $middlewareKey) {
             $middlewareClass = $this->resolveMiddleware($middlewareKey);
+            $middlewareInstance = $this->resolveClass($middlewareClass);
 
-            (new $middlewareClass)->handle();
+            $middlewareInstance->handle();
         }
     }
 
     private function resolveMiddleware(string $key): string {
         $map = [
             'auth' => \App\Middlewares\AuthMiddleware::class,
-            'guest' => \App\Middlewares\GuestMiddleware::class
+            'guest' => \App\Middlewares\GuestMiddleware::class,
+            'admin' => \App\Middlewares\AdminMiddleware::class
         ];
         return $map[$key] ?? $key;
     }

@@ -9,26 +9,22 @@ use App\Controllers\BDController;
 /** @var \App\Core\Router $router */
 
 $router->group(['middleware' => 'guest'], function($r) {;
-    $r->get('/auth/register', [AuthController::class, 'register']);
-    $r->get('/auth/login', [AuthController::class, 'login']);
+    $r->get('/auth/login', [AuthController::class, 'index']);
+    $r->post('/auth/login', [AuthController::class, 'login']);
 });
-
-$router->delete('/bd/schemaDelete', [BDController::class, 'schemaDelete']);
 
 $router->get('/', [HomeController::class, 'index']);
 
-$router->get('/docs', [HomeController::class, 'docs']);
+$router->group(['middleware' => 'admin'], function($r) {
+    $r->get('/bd/schemaBuilder', [BDController::class, 'schemaBuilder']);
 
-$router->get('/bd/schemaBuilder', [BDController::class, 'schemaBuilder']);
+    $r->get('/bd/schemaCreate', [BDController::class, 'schemaCreate']);
 
-$router->get('/bd/schemaCreate', [BDController::class, 'schemaCreate']);
+    $r->get('/bd/schemaView', [BDController::class, 'schemaView']);
 
-$router->get('/bd/schemaView', [BDController::class, 'schemaView']);
+    $r->post('/bd/schemaBuilder', [BDController::class, 'schemaBuilderGenerate']);
 
-$router->post('/bd/schemaBuilder', [BDController::class, 'schemaBuilderGenerate']);
+    $r->get('/bd/schemaCreate/success', [BDController::class, 'schemaCreateSuccess']);
 
-$router->get('/bd/schemaCreate/success', [BDController::class, 'schemaCreateSuccess']);
-
-$router->group(['middleware' => 'auth'], function($r) {
-    $r->get('/dashboard', [HomeController::class, 'dashboard']);
+    $r->delete('/bd/schemaDelete', [BDController::class, 'schemaDelete']);
 });
