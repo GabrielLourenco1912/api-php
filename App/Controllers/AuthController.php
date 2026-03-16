@@ -25,4 +25,9 @@ class AuthController
             $response->redirect('/auth/login', ['message' => 'Credenciais inválidas']);
         }
     }
+    public function logout(Request $request, Response $response, AuthService $authService): void
+    {
+        $authService->logout();
+        $response->redirect('/');
+    }
 }

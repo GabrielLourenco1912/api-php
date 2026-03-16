@@ -16,6 +16,8 @@
             --text: #e5e7eb;
             --muted: #94a3b8;
             --border: #1e293b;
+            --danger: #ef4444;
+            --danger-bg: rgba(239, 68, 68, 0.1);
         }
 
         * {
@@ -40,7 +42,11 @@
             width: 100%;
         }
 
-        header {
+        /* Container flexível para alinhar o título e o botão de logout */
+        .header-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
             margin-bottom: 32px;
         }
 
@@ -53,12 +59,40 @@
         header p {
             color: var(--muted);
         }
+
         .back-link {
             display: inline-flex; align-items: center; gap: 8px;
             color: var(--muted); text-decoration: none; font-size: 0.9rem;
             margin-bottom: 28px; transition: color .2s ease;
         }
-        .back-link:hover { color: var(--primary); transform: translateX(-4px); }
+
+        .back-link:hover {
+            color: var(--primary);
+            transform: translateX(-4px);
+        }
+
+        /* Estilização do Botão de Logout */
+        .btn-logout {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--muted);
+            padding: 10px 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .btn-logout:hover {
+            border-color: var(--danger);
+            color: var(--danger);
+            background: var(--danger-bg);
+            transform: translateY(-2px);
+        }
 
         .grid {
             display: grid;
@@ -123,10 +157,25 @@
         Voltar para Home
     </a>
 
-    <header>
-        <h1>Schema Builder</h1>
-        <p>Acesso rápido aos módulos do schema builder</p>
-    </header>
+    <div class="header-wrapper">
+        <header>
+            <h1>Schema Builder</h1>
+            <p>Acesso rápido aos módulos do schema builder</p>
+        </header>
+
+        <form action="/auth/logout" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+
+            <button type="submit" class="btn-logout" title="Encerrar sessão">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                    <polyline points="16 17 21 12 16 7"></polyline>
+                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                </svg>
+                Sair
+            </button>
+        </form>
+    </div>
 
     <main class="grid">
         <a href="/bd/schemaCreate" class="card">
@@ -137,7 +186,6 @@
             <h2>Schema View</h2>
             <p>Visualização e remoção de tabelas.</p>
         </a>
-
     </main>
 
     <footer>

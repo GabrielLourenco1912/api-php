@@ -1,6 +1,5 @@
 <?php
 /** @var string|null $message */
-$message = $message ?? null;
 ?>
 
 <!DOCTYPE html>
@@ -60,6 +59,24 @@ $message = $message ?? null;
             display: flex;
             flex-direction: column;
             align-items: center;
+        }
+
+        /* --- Link Voltar --- */
+        .back-link {
+            align-self: flex-start;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+            transition: all 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--primary-main);
+            transform: translateX(-4px);
         }
 
         .login-card {
@@ -127,7 +144,6 @@ $message = $message ?? null;
             line-height: 1.5;
         }
 
-        /* --- Alert de Erro --- */
         .alert-error {
             background: var(--error-bg);
             border: 1px solid rgba(239, 68, 68, 0.3);
@@ -156,7 +172,6 @@ $message = $message ?? null;
             margin: 0;
         }
 
-        /* Estilos do Formulário */
         form {
             display: flex;
             flex-direction: column;
@@ -181,7 +196,6 @@ $message = $message ?? null;
             color: var(--text-main);
         }
 
-        /* Wrapper para o input de senha e o botão */
         .password-wrapper {
             position: relative;
             display: flex;
@@ -200,7 +214,6 @@ $message = $message ?? null;
             outline: none;
         }
 
-        /* Dá espaço no lado direito para o botão de revelar senha não ficar por cima do texto */
         input[type="password"],
         .password-wrapper input[type="text"] {
             padding-right: 48px;
@@ -216,7 +229,6 @@ $message = $message ?? null;
             box-shadow: 0 0 0 4px rgba(78, 161, 255, 0.15);
         }
 
-        /* Botão Revelar Senha */
         .btn-reveal {
             position: absolute;
             right: 12px;
@@ -242,17 +254,14 @@ $message = $message ?? null;
             height: 20px;
         }
 
-        /* Oculta o ícone de 'olho fechado' por padrão */
         .icon-eye-closed {
             display: none;
         }
 
-        /* Quando o botão tiver a classe 'show', inverte a exibição dos ícones */
         .btn-reveal.show .icon-eye-open { display: none; }
         .btn-reveal.show .icon-eye-closed { display: block; }
 
 
-        /* Botão Primário */
         .btn {
             display: flex;
             align-items: center;
@@ -289,7 +298,6 @@ $message = $message ?? null;
             text-align: center;
         }
 
-        /* Animações */
         @keyframes slideUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -311,6 +319,12 @@ $message = $message ?? null;
 <body>
 
 <main class="container">
+
+    <a href="/" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+        Voltar para Home
+    </a>
+
     <div class="login-card">
 
         <header class="header-text">

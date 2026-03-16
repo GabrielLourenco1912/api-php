@@ -15,7 +15,11 @@ $router->group(['middleware' => 'guest'], function($r) {;
 
 $router->get('/', [HomeController::class, 'index']);
 
+$router->get('/docs', [HomeController::class, 'docs']);
+
 $router->group(['middleware' => 'admin'], function($r) {
+    $r->delete('/auth/logout', [AuthController::class, 'logout']);
+
     $r->get('/bd/schemaBuilder', [BDController::class, 'schemaBuilder']);
 
     $r->get('/bd/schemaCreate', [BDController::class, 'schemaCreate']);

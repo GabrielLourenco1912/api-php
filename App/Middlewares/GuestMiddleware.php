@@ -20,7 +20,7 @@ class GuestMiddleware {
 
         if (isset($currentUserId))
         {
-            $this->redirect('/');
+            $this->redirect('/bd/schemaBuilder');
         }
     }
 

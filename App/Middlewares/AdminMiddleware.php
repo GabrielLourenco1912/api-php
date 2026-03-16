@@ -21,8 +21,13 @@ class AdminMiddleware
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
-        $currentUser = $this->userDao->findById($this->session->get('currentUserId'));
-         if (!$currentUser || $currentUser->getRole() !== 'admin') {
+        $currentUserId = $this->session->get('currentUserId');
+        if (isset($currentUserId)) {
+            $currentUser = $this->userDao->findById($this->session->get('currentUserId'));
+             if (!$currentUser || $currentUser->getRole() !== 'admin') {
+                $this->throw();
+            }
+        } else {
             $this->throw();
         }
     }
