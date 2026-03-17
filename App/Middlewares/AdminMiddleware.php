@@ -10,6 +10,7 @@ class AdminMiddleware
 {
     private UsersDAOImpl $userDao;
     private Session $session;
+
     public function __construct(UsersDAOImpl $userDao, Session $session)
     {
         $this->userDao = $userDao;

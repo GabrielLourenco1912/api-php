@@ -2,6 +2,7 @@
 
 namespace App\Core;
 
+use App\Core\Exceptions\ApiException;
 use App\Core\Exceptions\HttpException;
 
 class Router {
@@ -56,6 +57,9 @@ class Router {
         }
 
         if (!isset($this->routes[$method])) {
+            if (strpos($uri, 'api/') === 0) {
+                throw new ApiException('Método não permitido', 405);
+            }
             throw new HttpException('Método não permitido', 405);
         }
 
@@ -80,7 +84,9 @@ class Router {
                 return;
             }
         }
-
+        if (strpos($uri, '/api') === 0) {
+            throw new ApiException('Não encontrado', 404);
+        }
         throw new HttpException('Não encontrado', 404);
     }
 
@@ -190,7 +196,8 @@ class Router {
         $map = [
             'auth' => \App\Middlewares\AuthMiddleware::class,
             'guest' => \App\Middlewares\GuestMiddleware::class,
-            'admin' => \App\Middlewares\AdminMiddleware::class
+            'admin' => \App\Middlewares\AdminMiddleware::class,
+            'auth:api' => \App\Middlewares\AuthMiddlewareJWT::class
         ];
         return $map[$key] ?? $key;
     }

@@ -18,16 +18,44 @@ class AuthController
     {
         $data = $request->getBody();
         $authService->saveAdminUser();
+        $result = $authService->login($data['email'] ?? null, $data['password'] ?? null);
 
-        if ($authService->login($data['email'], $data['password'])) {
-            $response->redirect('/bd/schemaBuilder');
-        } else {
+        if (!$result) {
             $response->redirect('/auth/login', ['message' => 'Credenciais inválidas']);
+            return;
         }
+
+        $response->redirect('/');
     }
     public function logout(Request $request, Response $response, AuthService $authService): void
     {
         $authService->logout();
         $response->redirect('/');
+    }
+
+    public function loginApi(Request $request, Response $response, AuthService $authService): void
+    {
+        $data = $request->getBody();
+
+        $token = $authService->loginApi($data['email'] ?? null, $data['password'] ?? null);
+
+        if (!$token) {
+            $response->json(['message' => 'Invalid credentials'], 401)->send();
+            return;
+        }
+
+        $response->json([
+            'message' => 'Login successful',
+            'token' => $token
+        ])->send();
+    }
+
+    public function authUser(Response $response, AuthService $authService): void
+    {
+        $user = $authService->authUser();
+
+        $response->json([
+            'user_id' => $user->getId()
+        ])->send();
     }
 }

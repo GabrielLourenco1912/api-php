@@ -5,6 +5,7 @@ namespace App\Middlewares;
 use App\Core\Session;
 
 class GuestMiddleware {
+    private Session $session;
     public function __construct(Session $session)
     {
         $this->session = $session;

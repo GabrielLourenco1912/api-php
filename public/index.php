@@ -1,5 +1,6 @@
 <?php
 
+use App\Core\Exceptions\ApiException;
 use App\Core\Router;
 use App\Core\Response;
 use App\Core\Exceptions\HttpException;
@@ -26,6 +27,12 @@ require __DIR__ . '/../config/routes/web.php';
 
 try {
     $router->dispatch();
+} catch (ApiException $e) {
+    $response = new Response(new \App\Core\Flash());
+    $code = (int) $e->getStatusCode() ?: 500;
+    $response->setStatusCode($code)
+        ->json(['error' => $e->getMessage()], $code)
+        ->send();
 } catch (HttpException $e) {
     $response = new Response(new \App\Core\Flash());
     $code = $e->getStatusCode();
