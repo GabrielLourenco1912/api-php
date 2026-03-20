@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0282140e-0bb6-45ed-aeab-c3924684181b" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution>
+      <executable path="composer" />
+    </execution>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="GitHub Workflow" />
+        <option value="PHP File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;GabrielLourenco1912&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:GabrielLourenco1912/Aprendizado-Pessoal.git&quot;,
+    &quot;accountId&quot;: &quot;f16dd838-2830-49bd-9b30-211ce6a170cb&quot;
+  }
+}</component>
+  <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/bin/php">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/vendor/graham-campbell/result-type" />
+      <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/vendor/firebase/php-jwt" />
+    </include_path>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="361HJhAbxQfB1QVo5BTziDSTbtO" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "PHP Script.index.php.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "git-widget-placeholder": "api",
+    "last_opened_file_path": "/home/gabriel/PhpstormProjects/Projeto Pessoal",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.webide.settings.project.settings.php",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/App/src/interfaces/CalculadoraPreco" />
+      <recent name="$PROJECT_DIR$/App/src/interfaces/ICalculadoraPreco" />
+      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/App" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PS-253.32098.40" />
+        <option value="bundled-php-predefined-a98d8de5180a-0e0d91225499-com.jetbrains.php.sharedIndexes-PS-253.32098.40" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0282140e-0bb6-45ed-aeab-c3924684181b" name="Changes" comment="" />
+      <created>1764167086668</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1764167086668</updated>
+      <workItem from="1764167087763" duration="18092000" />
+      <workItem from="1764590263454" duration="8421000" />
+      <workItem from="1764767735100" duration="15126000" />
+      <workItem from="1765201432698" duration="2000" />
+      <workItem from="1765283093575" duration="1225000" />
+      <workItem from="1765374338959" duration="18000" />
+      <workItem from="1765378553854" duration="26000" />
+      <workItem from="1765378604711" duration="1996000" />
+      <workItem from="1765420645110" duration="10443000" />
+      <workItem from="1765432260934" duration="10602000" />
+      <workItem from="1765456689277" duration="7552000" />
+      <workItem from="1765464694655" duration="2982000" />
+      <workItem from="1765807968637" duration="5699000" />
+      <workItem from="1765930910641" duration="9620000" />
+      <workItem from="1766095596218" duration="7183000" />
+      <workItem from="1766675817705" duration="765000" />
+      <workItem from="1766777166079" duration="2638000" />
+      <workItem from="1767032512312" duration="3054000" />
+      <workItem from="1768354632654" duration="17044000" />
+      <workItem from="1768915693881" duration="6081000" />
+      <workItem from="1769006387695" duration="18427000" />
+      <workItem from="1769750322702" duration="28729000" />
+      <workItem from="1770267778724" duration="173000" />
+      <workItem from="1770269221457" duration="11000" />
+      <workItem from="1770269284953" duration="569000" />
+      <workItem from="1770270353964" duration="101000" />
+      <workItem from="1770270539892" duration="406000" />
+      <workItem from="1770271123519" duration="472000" />
+      <workItem from="1770302994671" duration="23996000" />
+      <workItem from="1770386274100" duration="1707000" />
+      <workItem from="1770407706050" duration="2695000" />
+      <workItem from="1770813593556" duration="8558000" />
+      <workItem from="1770865510678" duration="11000" />
+      <workItem from="1770992611494" duration="26000" />
+      <workItem from="1770992927522" duration="1112000" />
+      <workItem from="1771509522564" duration="64403000" />
+      <workItem from="1771980886091" duration="662000" />
+      <workItem from="1772035993027" duration="22259000" />
+      <workItem from="1772276835116" duration="2194000" />
+      <workItem from="1772622038350" duration="1869000" />
+      <workItem from="1772638035164" duration="3052000" />
+      <workItem from="1772717477668" duration="3389000" />
+      <workItem from="1773056879463" duration="17761000" />
+      <workItem from="1773149482675" duration="17114000" />
+      <workItem from="1773504250770" duration="32335000" />
+      <workItem from="1773840423009" duration="1517000" />
+      <workItem from="1773927275256" duration="22258000" />
+      <workItem from="1774022574050" duration="198000" />
+      <workItem from="1774022782612" duration="511000" />
+      <workItem from="1774023307726" duration="247000" />
+      <workItem from="1774023571456" duration="174000" />
+      <workItem from="1774023755212" duration="493000" />
+      <workItem from="1774026893525" duration="41000" />
+      <workItem from="1774026943404" duration="25000" />
+      <workItem from="1774026975957" duration="90000" />
+      <workItem from="1774027094148" duration="91000" />
+      <workItem from="1774027214380" duration="141000" />
+      <workItem from="1774027362521" duration="60000" />
+      <workItem from="1774027430295" duration="311000" />
+      <workItem from="1774028902230" duration="151000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
+  </component>
+</project>
