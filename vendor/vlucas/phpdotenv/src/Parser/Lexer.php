@@ -28,7 +28,7 @@ final class Lexer
     /**
      * Convert content into a token stream.
      *
-     * Multibyte string processing is not needed here, and nether is errors
+     * Multibyte string processing is not needed here, and nether is error
      * handling, for performance reasons.
      *
      * @param string $content

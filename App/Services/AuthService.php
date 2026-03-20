@@ -15,13 +15,12 @@ class AuthService {
     private JWT $jwt;
     private Request $request;
     private ?Users $user;
-    public function __construct(Request $request, Session $session, UsersDAOImpl $userAuth, JWT $jwt, Users $user)
+    public function __construct(Request $request, Session $session, UsersDAOImpl $userAuth, JWT $jwt)
     {
         $this->session = $session;
         $this->userAuth = $userAuth;
         $this->jwt = $jwt;
         $this->request = $request;
-        $this->user = null;
     }
     public function login(string $email, string $senha): bool
     {

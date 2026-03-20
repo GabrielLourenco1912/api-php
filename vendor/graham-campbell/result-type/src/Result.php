@@ -50,14 +50,14 @@ abstract class Result
     abstract public function flatMap(callable $f);
 
     /**
-     * Get the errors option value.
+     * Get the error option value.
      *
      * @return \PhpOption\Option<E>
      */
     abstract public function error();
 
     /**
-     * Map over the errors value.
+     * Map over the error value.
      *
      * @template F
      *
