@@ -71,7 +71,7 @@ class AuthService {
         $user = $this->userAuth->findById($currentUserId);
 
         if (!$user) {
-            throw new HttpException("Usuário não encontrado: ID $currentUserId", 401);
+            throw new HttpException("Usuário não encontrado", 401);
         }
 
         return $user;
