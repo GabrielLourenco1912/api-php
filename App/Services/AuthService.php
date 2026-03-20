@@ -14,7 +14,7 @@ class AuthService {
     private UsersDAOImpl $userAuth;
     private JWT $jwt;
     private Request $request;
-    private ?Users $user;
+    private ?Users $user = null;
     public function __construct(Request $request, Session $session, UsersDAOImpl $userAuth, JWT $jwt)
     {
         $this->session = $session;
