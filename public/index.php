@@ -25,6 +25,9 @@ $router->setPrefix('');
 
 require __DIR__ . '/../config/routes/web.php';
 
+var_dump($_SERVER['REQUEST_URI']);
+die;
+
 try {
     $router->dispatch();
 } catch (ApiException $e) {
