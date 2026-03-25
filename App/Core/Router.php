@@ -48,46 +48,48 @@ class Router {
         ];
     }
     public function dispatch() {
-        $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-        $uri = '/' . trim($uri, '/');
-        $method = $_SERVER['REQUEST_METHOD'];
+        try {
+            $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+            $uri = '/' . trim($uri, '/');
+            $method = $_SERVER['REQUEST_METHOD'];
 
-        if ($method === 'POST' && isset($_POST['_method'])) {
-            $method = strtoupper($_POST['_method']);
-        }
-
-        if (!isset($this->routes[$method])) {
-            if (strpos($uri, 'api/') === 0) {
-                throw new ApiException('Método não permitido', 405);
-            }
-            throw new HttpException('Método não permitido', 405);
-        }
-
-        if (isset($this->routes[$method][$uri])) {
-            $this->executeMiddleware($this->routes[$method][$uri]);
-            $this->executeHandler($this->routes[$method][$uri]);
-            return;
-        }
-
-        foreach ($this->routes[$method] as $route => $handler) {
-            if (strpos($route, '{') === false) {
-                continue;
+            if ($method === 'POST' && isset($_POST['_method'])) {
+                $method = strtoupper($_POST['_method']);
             }
 
-            $pattern = preg_replace('/\{[a-zA-Z0-9_]+\}/', '([^/]+)', $route);
-            $pattern = "#^" . $pattern . "$#";
+            if (!isset($this->routes[$method])) {
+                throw new HttpException('Método não permitido', 405);
+            }
 
-            if (preg_match($pattern, $uri, $matches)) {
-                array_shift($matches);
-                $this->executeMiddleware($handler);
-                $this->executeHandler($handler, $matches);
+            if (isset($this->routes[$method][$uri])) {
+                $this->executeMiddleware($this->routes[$method][$uri]);
+                $this->executeHandler($this->routes[$method][$uri]);
                 return;
             }
+
+            foreach ($this->routes[$method] as $route => $handler) {
+                if (strpos($route, '{') === false) {
+                    continue;
+                }
+
+                $pattern = preg_replace('/\{[a-zA-Z0-9_]+\}/', '([^/]+)', $route);
+                $pattern = "#^" . $pattern . "$#";
+
+                if (preg_match($pattern, $uri, $matches)) {
+                    array_shift($matches);
+                    $this->executeMiddleware($handler);
+                    $this->executeHandler($handler, $matches);
+                    return;
+                }
+            }
+
+            throw new HttpException('Não encontrado', 404);
+        } catch (\Throwable $e) {
+            if (strpos($uri, 'api/') === 0) {
+                throw new ApiException($e->getMessage(), $e->getCode());
+            }
+            throw $e;
         }
-        if (strpos($uri, '/api') === 0) {
-            throw new ApiException('Não encontrado', 404);
-        }
-        throw new HttpException('Não encontrado', 404);
     }
 
     private function executeHandler(array $handler, array $urlParams = []) {
@@ -147,7 +149,7 @@ class Router {
             $reflector = new \ReflectionClass($className);
 
             if (!$reflector->isInstantiable()) {
-                throw new \Exception("A classe [$className] não pode ser instanciada.");
+                throw new \Exception("A classe [$className] não pode ser instanciada.", 500);
             }
 
             $constructor = $reflector->getConstructor();
@@ -170,7 +172,7 @@ class Router {
                     if ($param->isDefaultValueAvailable()) {
                         $dependencies[] = $param->getDefaultValue();
                     } else {
-                        throw new \Exception("Não foi possível resolver a dependência primitiva da classe $className");
+                        throw new \Exception("Não foi possível resolver a dependência primitiva da classe $className", 500);
                     }
                 }
             }

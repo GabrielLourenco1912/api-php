@@ -87,7 +87,7 @@ class TableImplDAO {
     public function deleteTable(string $tableName): void
     {
         if (!preg_match('/^[a-zA-Z0-9_]+$/', $tableName)) {
-            throw new \Exception("Nome de tabela inválido.");
+            throw new \Exception("Nome de tabela inválido.", 400);
         }
 
         $sql = "DROP TABLE IF EXISTS \"$tableName\" CASCADE";

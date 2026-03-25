@@ -26,13 +26,13 @@ class JWT {
             $decoded = FirebaseJWT::decode($jwt, new Key($this->key, $alg, $headers));
             return (array) $decoded;
         } catch (ExpiredException $e) {
-            throw new \Exception('Token has expired');
+            throw new \Exception('Token has expired', 401);
         } catch (BeforeValidException $e) {
-            throw new \Exception('Token is not valid yet');
+            throw new \Exception('Token is not valid yet', 401);
         } catch (SignatureInvalidException $e) {
-            throw new \Exception('Invalid token signature');
+            throw new \Exception('Invalid token signature', 401);
         } catch (\Exception $e) {
-            throw new \Exception('Invalid token: ' . $e->getMessage());
+            throw new \Exception('Invalid token: ' . $e->getMessage(), 401);
         }
     }
 }
